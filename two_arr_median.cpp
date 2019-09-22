@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+using namespace std::chrono;
 
 int mini(int a, int b) 
 {
@@ -45,9 +46,15 @@ double sortedArrayMedian(vector<int>& a, vector<int>& b)
 
 int main()
 {
-  vector<int> arr1 = {900};
-  vector<int> arr2 = {10, 13, 14};
+  vector<int> arr1 = {3,5,10,11,17};
+  vector<int> arr2 = {9,13,20,21,23,27};
 
+  auto start = high_resolution_clock::now();
   cout << sortedArrayMedian(arr1, arr2) << endl;
+  auto stop = high_resolution_clock::now();
+
+  auto duration = duration_cast<microseconds>(stop - start);
+
+  cout << duration.count() << " microseconds" <<endl;
   return 0;
 }
