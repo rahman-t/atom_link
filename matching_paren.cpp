@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+using namespace std::chrono;
 bool isValid(string str)
 {
   stack<char> s;
@@ -42,12 +42,21 @@ int main()
 {
   string n;
   getline(cin, n);
-  
+
+  auto start = high_resolution_clock::now(); 
   if (isValid(n))
     {
       cout << "True" << endl;
     }
-    else cout << "False" << endl;
+    else 
+      {
+	cout << "False" << endl;
+      }
+  auto end = high_resolution_clock::now();
+
+  auto duration = duration_cast<microseconds>(end - start);
+
+  cout << duration.count() << " microseconds" << endl;
 
   return 0;
 }
